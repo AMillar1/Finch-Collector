@@ -26,5 +26,8 @@ class Feeding(models.Model):
         default=MEALS[0][0],
     )
     finch = models.ForeignKey(Finch, on_delete=models.CASCADE)
+
     def __str__(self):
         return f"{self.get_meal_display()} on {self.date}"
+    class Meta:
+        ordering = ['-date']
